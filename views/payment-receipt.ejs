@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" href="/images/favicon-32x32.png" type="image/png" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/app.css" type="text/css" />
+  <title><%= appname %></title>
+  <style>
+    .bg-primary, .btn-primary {
+      background-image: linear-gradient(45deg, #e91e63, #f44336) !important;
+      border-color: #f44336;
+    }
+    .text-primary {
+      color: #3244a2 !important;
+    }
+  </style>
+</head>
+<body class="bg-white">
+  <div class="container" style="width: 992px; margin: auto;">
+    <div class="row space">
+      <div class="col-12">
+        <div>
+          <h1 class="text-center font-weight-light">Payment Receipt</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td>PAYMENT RECEIPT</td>
+              <td><%= receipt.receipt_number %></td>
+            </tr>
+            <tr>
+              <td>FULLNAME</td>
+              <td><%= receipt.student_name %></td>
+            </tr>
+            <tr>
+              <td>MATRIC NUMBER</td>
+              <td><%= receipt.student_reg_no %></td>
+            </tr>
+            <tr>
+              <td>NAME OF PAYMENT</td>
+              <td><%= receipt.name_of_payment %></td>
+            </tr>
+            <tr>
+              <td>Date OF PAYMENT</td>
+              <td><%= receipt.createdAt.toLocaleString('fr') %></td>
+            </tr>
+            <tr>
+              <td>DETAILS</td>
+              <td>Received the sum of <%= receipt.total_amount_paid %> beign payment for <%= receipt.name_of_payment %> for <%= receipt.sesssion %> session</td>
+            </tr>
+            <tr>
+              <td>AMOUNT</td>
+              <td><%= receipt.total_amount_paid%></td>
+            </tr>
+            <tr>
+              <td>SIGNATURE OF PAYER</td>
+              <td>SIGNATURE OF REVENUE COLLECTOR</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

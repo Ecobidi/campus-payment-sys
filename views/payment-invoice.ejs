@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" href="/images/favicon-32x32.png" type="image/png" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/app.css" type="text/css" />
+  <title><%= appname %></title>
+  <style>
+    .bg-primary, .btn-primary {
+      background-image: linear-gradient(45deg, #e91e63, #f44336) !important;
+      border-color: #f44336;
+    }
+    .text-primary {
+      color: #3244a2 !important;
+    }
+  </style>
+</head>
+<body class="bg-white">
+  <div class="container" style="width: 992px; margin: auto;">
+    <div class="row space">
+      <div class="col-12">
+        <div>
+          <h1 class="text-center font-weight-light">Payment Invoice</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <p>FROM</p>
+        <p><strong><%= invoice.student_name %></strong></p>
+        <p>Email: (Phone)</p>
+        <p>Phone: (Phone) <%= invoice.student_phone %></p>
+      </div>
+
+      <div class="col-lg-6 col-md-12">
+        <p>Invoice No.</p>
+        <h6><%= invoice.invoice_number %></h6>
+        <h6><%= invoice.name_of_payment %> (<%= invoice.session %>)</h6>
+        <p>Invoice Date: <%= invoice.createdAt.toLocaleString() %></p>
+      </div>
+      <div class="col-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Unit Price</th>
+              <th>Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= invoice.name_of_payment %></td>
+              <td class="text-right">1</td>
+              <td class="text-right"><%= invoice.total_amount %></td>
+              <td class="text-right"><%= invoice.total_amount %></td>
+            </tr>
+            <tr>
+              <td>()</td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td>()</td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+              <td class="text-right">SUB TOTAL:</td>
+              <td class="text-right font-weight-bold"><%= invoice.total_amount%></td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+              <td class="text-right">VAT:</td>
+              <td class="text-right font-weight-bold">0.00</td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+              <td class="text-right">TOTAL:</td>
+              <td class="text-right font-weight-bold"><%= invoice.total_amount%></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

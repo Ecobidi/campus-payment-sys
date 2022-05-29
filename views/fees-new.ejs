@@ -1,0 +1,60 @@
+<%-include ("partials/top") %>
+<div class="row space">
+  <div class="col-12">
+    <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+      <h4 class="page-title">New Fee</h4>
+    </div>
+  </div> 
+</div>
+
+<div class="row">
+<div class="col-12">
+
+<form action="/fees/new" method="POST" class="card">
+
+  <fieldset class="row card-body">
+    <div class="form-group col-md-6">
+      <label>Name of Payment: <strong class="text-danger">*</strong></label>
+      <input required type="text" class="form-control" name="name_of_payment" />
+    </div>
+    <div class="form-group col-md-6">
+      <label>Total Amount: <strong class="text-danger">*</strong></label>
+      <input required type="text" class="form-control" name="total_amount" />
+    </div>
+    <div class="form-group col-md-6">
+      <label>Session: <strong class="text-info">*</strong></label>
+      <select name="session" class="form-control" required>
+        <option value="">-- Choose Session --</option>
+        <option>2020/2021</option>
+        <option>2021/2022</option>
+      </select>
+    </div>
+    <% /* %>
+    <div class="form-group col-12">
+      <label>Course Allocations (Tick the programmes of study that offer this course)</label>
+      <div>
+        <% programmes_of_study.forEach( p => { %>
+        <span class="d-inline-block">
+        <label class="badge badge-pill badge-light d-flex align-items-center mr-3 p-2" style="width: fit-content;">
+          <input type="checkbox" name="programmes_of_study" value='<%= p.serial_number %>' style="height: 16px; width: 16px;" class="ml-2">
+          <strong><%= p.name %></strong>
+        </label>
+        </span>
+        <% } ) %>
+      </div>
+    </div>
+    <% */ %>
+  </fieldset>
+  
+  <div class="form-group mt-2">
+    <button class="btn btn-primary form-control" type="submit">Submit</button>
+  </div>
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+<%-include ("partials/bottom") %>

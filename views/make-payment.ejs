@@ -1,0 +1,78 @@
+<%- include ('partials/top') %>
+
+  <div class="row space">
+    <div class="col-lg-4 col-md-6 col-sm-12 card">
+      <div class="card-header text-center">
+        <h5>Make Payment</h5>
+      </div>
+      <div class="card-body">
+      <% if (error_msg && error_msg.length > 0) { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong><%= error_msg %></strong> 
+        </div>
+        <script>
+          $(".alert").alert();
+        </script>
+      <% } %>
+      <form action="/make-payment" method="GET">
+        <div class="form-group">
+          <label class="text-center">Invoice Number</label>
+          <input required class="form-control form-control-lg" type="text" placeholder="Enter Invoice No." name="invoice_number">
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary btn-block btn-raised">Retrieve Payment Details</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    </div>
+    
+    <% if (invoice_available) { %>
+      <div class="col-lg-8 col-md-6 col-sm-12 card">
+        <div class="card-header">
+          <h6>Payment Details</h6>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <tr>
+              <td>Invoice No.</td><td><%= invoice.invoice_number %></td>
+            </tr>
+            <tr>
+              <td>Payment</td><td><%= invoice.name_of_payment %></td>
+            </tr>
+            <tr>
+              <td>Student</td><td><%= invoice.student_name %></td>
+            </tr>
+            <tr>
+              <td>Session</td><td><%= invoice.session %></td>
+            </tr>
+            <tr>
+              <td>Amount Due</td><td><%= invoice.total_amount %></td>
+            </tr>
+          </table>
+        </div>
+        <div class="card-footer">
+          <form class="form-inline" action="/make-payment" method="POST">
+            <input type="hidden" name="invoice" value='<%= invoice.invoice_number %>'>
+            <div class="form-group">
+              <input name="total_amount_paid" class="form-control mr-2 text-right" placeholder="Enter Amount To Be Paid" type="number" value='<%= invoice.total_amount %>'>
+              <button class="btn btn-primary" type="submit">Make Payment <i class="fa fa-money" aria-hidden="true"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    <% } %>
+
+  </div>
+</main>
+</div>
+
+</div>
+  
+
+<%- include ('partials/bottom') %>

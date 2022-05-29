@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" href="/images/favicon-32x32.png" type="image/png" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/app.css" type="text/css" />
+  <title><%= appname %></title>
+  <style>
+    .bg-primary, .btn-primary {
+      background-image: linear-gradient(45deg, #e91e63, #f44336) !important;
+      border-color: #f44336;
+    }
+    .text-primary {
+      color: #3244a2 !important;
+    }
+    body {
+      background-image: url(/images/login-background.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body style="background-color: rgba(50, 50, 50, 0.7); height: 100vh;">
+<div style="background-color: rgba(0, 0, 0, 0.7); height: 100vh;">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-image: linear-gradient(45deg, #e91e63, #f44336);">
+    <div class="container">
+      <div class="w-100 d-flex justify-content-between align-items-center">
+        <div class="mx-auto">
+          <a class="navbar-brand" style="font-size: 24px;" href="/"> <img class="logo-brand mr-4" src="/images/favicon-96x96.png" alt=""> <%= appname %> </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="container">
+    <div class="row">
+      
+	  <div class="col-md-6 offset-md-3 col-sm-12 d-flex align-items-start justify-content-center">
+        <div class="card text-center" style="max-width: 420px; width: 85%; background-image: rgba(200, 200, 200, 0.2) !important; background-repeat: repeat-x; margin-top: 3rem; border: none;">
+          <div class="card-header">
+            <h4 class="white mb-2 text-uppercase">Admin Login</h4>
+          </div>
+          <div class="card-body bg-light">
+            <div class="card-block">
+              <form action="/login" method="POST">
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <input value="admin" type="text" class="form-control form-control-lg" name="username" placeholder="Username" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <input value="admin" type="password" class="form-control form-control-lg" name="password" placeholder="Password" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0 ml-3">
+                        <input type="checkbox" class="custom-control-input" checked id="rememberme">
+                        <label class="custom-control-label float-left " for="rememberme">Remember Me</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary btn-block btn-raised">Login</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          </div>
+        </div>
+    </div>
+  </main>
+</div>
+  
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
